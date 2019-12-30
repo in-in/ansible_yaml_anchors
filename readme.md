@@ -1,6 +1,5 @@
 ```bash
-git clone git@github.com:in-in/ansible_yaml_anchors.git\
-ansible_yaml_anchors && cd ansible_yaml_anchors
+git clone https://github.com/in-in/ansible_yaml_anchors.git ansible_yaml_anchors && cd ansible_yaml_anchors
 ```
 
 ```bash
