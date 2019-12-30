@@ -1,0 +1,6 @@
+- import_tasks: "{{ playbook_dir }}/helpers/copy.yml"
+  vars:
+    copy_facts:
+      - src: "test2.txt"
+        dest: "/usr/dest"
+        privilege: True

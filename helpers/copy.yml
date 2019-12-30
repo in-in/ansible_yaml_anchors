@@ -1,0 +1,28 @@
+- &directory
+  name: helper | copy | create directory
+  become: "{{ item.privilege | default(false) }}"
+  file:
+    path: "{{ item.dest }}"
+    state: directory
+  when:
+    - '"privilege" in item'
+    - item.dest is not directory
+  loop: "{{ copy_facts }}"
+
+- &copy
+  name: helper | copy | copy file
+  become: "{{ item.privilege | default(false) }}"
+  copy:
+    backup: "{{ item.backup | default(false) }}"
+    mode: preserve
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  when: '"privilege" in item'
+  loop: "{{ copy_facts }}"
+
+# without privilege
+- <<: *directory
+  when: '"privilege" not in item'
+
+- <<: *copy
+  when: '"privilege" not in item'

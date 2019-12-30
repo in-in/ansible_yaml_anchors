@@ -1,0 +1,5 @@
+- name: test3
+  copy:
+    src: "test.txt"
+    src: "test3.txt"
+    dest: "~/dest"
